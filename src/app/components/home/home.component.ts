@@ -9,25 +9,16 @@ import { MoonbirdsService } from 'src/app/services/moonbirds.service';
 export class HomeComponent implements OnInit {
 
   public inputText: string = '';
-  public metadata: any;
+  public tokenID: any;
   public moonbirdImg: string = '';
   public notValidId: boolean = false;
   public metadataUrl = "https://live---metadata-5covpqijaa-uc.a.run.app/metadata/";
 
   constructor(private api: MoonbirdsService) {}
 
+  // TODO: read from the in-chain contract for custom backgrounds
+
   ngOnInit(): void {
-    // this.api.getMoonbirdsMetadata(this.metadataUrl + '1')
-    //   .subscribe(
-    //     (data) => {
-    //       console.log(data);
-    //       console.log('image', data.image);
-    //       this.metadata = data.name;
-    //     },
-    //     (err) => {
-    //       console.log(err)
-    //     }
-    //   );
   }
 
   public getMoonbirdMetadata(tokenId: string) {
@@ -43,7 +34,7 @@ export class HomeComponent implements OnInit {
         (data) => {
           console.log(data.image)
           this.moonbirdImg = data.image;
-          this.metadata = data.name;
+          this.tokenID = data.name;
         },
         (err) => {
           console.log(err)
