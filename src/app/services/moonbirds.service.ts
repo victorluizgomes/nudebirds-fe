@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from "rxjs";
+import { catchError, Observable, throwError } from "rxjs";
 import {
   HttpClient,
   HttpHeaders,
@@ -32,11 +32,6 @@ export class MoonbirdsService {
     return throwError(() => new Error(error.error.message));
   }
 
-  private extractData(res: Response) {
-    let body = res;
-    return body || {};
-  }
-
   public getMoonbirdsMetadata(url: string): Observable<any> {
 
     // Call the http GET
@@ -45,5 +40,9 @@ export class MoonbirdsService {
     );
   }
 
-
+  public getNudebirdsData(filePath: string): Observable<any> { //Promise<any[]> {
+    return this.http.get(filePath, {responseType: 'text'}).pipe(
+      catchError(this.handleError)
+    );
+  }
 }

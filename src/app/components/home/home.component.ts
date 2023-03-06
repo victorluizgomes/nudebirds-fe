@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MoonbirdsService } from 'src/app/services/moonbirds.service';
 
+const MetadataUrl = "https://live---metadata-5covpqijaa-uc.a.run.app/metadata/";
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +14,7 @@ export class HomeComponent implements OnInit {
   public tokenID: any;
   public moonbirdImg: string = '';
   public notValidId: boolean = false;
-  public metadataUrl = "https://live---metadata-5covpqijaa-uc.a.run.app/metadata/";
+  public isNudebird: boolean = false;
 
   constructor(private api: MoonbirdsService) {}
 
@@ -28,7 +30,7 @@ export class HomeComponent implements OnInit {
       this.notValidId = true;
       return;
     }
-    const url = this.metadataUrl + tokenId;
+    const url = MetadataUrl + tokenId;
     this.api.getMoonbirdsMetadata(url)
       .subscribe(
         (data) => {
@@ -37,9 +39,31 @@ export class HomeComponent implements OnInit {
           this.tokenID = data.name;
         },
         (err) => {
-          console.log(err)
+          console.log(err);
         }
       );
+    this.isMoonbirdNudebird(tokenId);
+  }
+
+  public isMoonbirdNudebird(tokenId: string) {
+    this.notValidId = false;
+    if(!this.isNumericInRange(tokenId)) {
+      console.log('Not a valid token ID');
+      this.notValidId = true;
+      return;
+    }
+
+    this.api.getNudebirdsData('/assets/nudebirds_token_ids.txt')
+    .subscribe(
+      (data: any) => {
+        data = data.split(', ');
+        this.isNudebird = data.includes(tokenId);
+        console.log(data);
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
 
   submit() {

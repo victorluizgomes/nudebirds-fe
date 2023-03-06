@@ -4,6 +4,14 @@
 <div *ngIf='tokenID'>
     <p class="text-5xl">Moonbird: {{ tokenID }}</p>
 </div>
+<div *ngIf="moonbirdImg !== ''">
+    <p *ngIf="isNudebird; else notNudebird">
+        Nudebird
+    </p>
+    <ng-template #notNudebird>
+        <p>Not Nudebird</p>
+    </ng-template>
+</div>
 <div>
     <img width="300px" [src]="moonbirdImg" alt="">
 </div>
