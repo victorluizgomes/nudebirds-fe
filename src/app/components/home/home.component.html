@@ -1,0 +1,9 @@
+<input type="text" [(ngModel)]="inputText" placeholder="Enter text">
+<button (click)="submit()">Submit</button>
+<div *ngIf="notValidId">Not a valid token ID</div>
+<div *ngIf='metadata'>
+    Moonbird: {{ metadata }}
+</div>
+<div>
+    <img width="300px" [src]="moonbirdImg" alt="">
+</div>
