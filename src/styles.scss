@@ -3,6 +3,24 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@font-face {
+    font-family: 'Albra';
+    src: url('/assets/fonts/AlbraTRIAL-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Albra-Grotesk';
+    src: url('/assets/fonts/AlbraGroteskTRIAL-Medium.otf');
+}
+
 body, html {
     height: 100%;
+    background-color: #f8f0e2;
+    color: #21212E;
+    font-family: 'Albra-Grotesk', 'Times New Roman', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Albra', serif;
+    color: black;
 }
