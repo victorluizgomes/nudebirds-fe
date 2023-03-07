@@ -5,10 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build.prod": "ng build --base-href=\"https://nudebirds.co/\" --configuration=production",
+    "build.prod": "ng build --base-href=\"https://www.nudebirds.co/\" --configuration=production",
     "build.all": "npm run build.prod && npm run make.cname && npm run copy.files",
     "watch": "ng build --watch --configuration development",
-    "make.cname": "touch CNAME && printf \"nudebirds.co\" > CNAME",
+    "make.cname": "touch CNAME && printf \"www.nudebirds.co\" > CNAME",
     "copy.files": "cp \"docs/index.html\" \"docs/404.html\" && cp CNAME docs/CNAME",
     "test": "ng test"
   },
