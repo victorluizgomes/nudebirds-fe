@@ -68,7 +68,8 @@
               "browserTarget": "nudebirds-fe:build:production"
             },
             "development": {
-              "browserTarget": "nudebirds-fe:build:development"
+              "browserTarget": "nudebirds-fe:build:development",
+              "proxyConfig": "proxy.config.json"
             }
           },
           "defaultConfiguration": "development"

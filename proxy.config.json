@@ -1,0 +1,11 @@
+{
+  "/metadata/*": {
+    "target": "https://xr5jdctc70.execute-api.us-east-2.amazonaws.com/prod/",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/metadata/*": ""
+    },
+    "logLevel": "debug"
+  }
+}

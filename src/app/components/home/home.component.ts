@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, isDevMode, OnInit } from '@angular/core';
 import { MoonbirdsService } from 'src/app/services/moonbirds.service';
 
-const MetadataUrl = "https://live---metadata-5covpqijaa-uc.a.run.app/metadata/";
+const MetadataUrl = isDevMode() ? 'metadata/' : "https://xr5jdctc70.execute-api.us-east-2.amazonaws.com/prod/";
 
 @Component({
   selector: 'app-home',
