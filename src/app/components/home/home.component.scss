@@ -60,3 +60,23 @@
         background-color: #7439b8;
     }
 }
+
+.next-prev-btn {
+    background: #FFFFFF;
+    border: 1px solid #DADAE8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-property: color,background-color,box-shadow,opacity,fill;
+    transition-duration: .1s;
+    transition-timing-function: ease-in-out;
+
+    &:hover, &:active {
+        background: #21212E;
+        box-shadow: 0px 4px 16px rgba(45, 45, 66, 0.24);
+        cursor: pointer;
+        path {
+            fill: white;
+        }
+    }
+}
